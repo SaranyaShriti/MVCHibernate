@@ -10,7 +10,7 @@ public interface RideService {
 
 	public void saveUser(User user);
 
-	public List<Route> listRoutes();
+	public List<Route> listRoutes(int pageNumber);
 
 	public List<Car> listCars();
 	

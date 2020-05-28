@@ -39,6 +39,9 @@
 							</tr>
 						</c:forEach>
 				</table>
+				<a href="routeListPagination?pageNo=1">1</a> 
+				<a href="routeListPagination?pageNo=2">2</a> 
+				<a href="routeListPagination?pageNo=3">3</a>
 			</div>
 		</div>
 	</div>

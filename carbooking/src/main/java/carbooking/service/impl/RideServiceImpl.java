@@ -27,9 +27,9 @@ public class RideServiceImpl implements RideService{
 	}
 
 	@Override
-	public List<Route> listRoutes() {
+	public List<Route> listRoutes(int pageNumber) {
 		
-		return rideDao.listRoutes();
+		return rideDao.listRoutes(pageNumber);
 	}
 
 	@Override

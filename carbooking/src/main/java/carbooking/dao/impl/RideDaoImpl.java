@@ -18,7 +18,8 @@ import carbooking.model.User;
 @Repository
 public class RideDaoImpl implements RideDao {
 
-	
+	int pageSize = 3;
+
 	@Autowired
 	SessionFactory sessionFactory;
 	
@@ -31,11 +32,13 @@ public class RideDaoImpl implements RideDao {
 	
 	}
 	
-	public List<Route> listRoutes(){
+	public List<Route> listRoutes(int pageNumber){
 		List<Route> listOfRoutes=new ArrayList<Route>();
 		Session session = sessionFactory.getCurrentSession();
 		
-		Query<Route> query = session.createQuery("from Route");	
+		Query<Route> query = session.createQuery("from Route");
+		query = query.setFirstResult(pageSize * (pageNumber - 1));
+	    query.setMaxResults(pageSize);
 		listOfRoutes=query.list();
 		return listOfRoutes;
 	}

@@ -8,7 +8,7 @@ import carbooking.model.User;
 
 public interface RideDao {
 	public void saveUser(User user);
-	public List<Route> listRoutes();
+	public List<Route> listRoutes(int pageNumber);
 	public List<Car> listCars();
 	public Car carDetail(int carId);
 	public Route routeDetail(int routeId);

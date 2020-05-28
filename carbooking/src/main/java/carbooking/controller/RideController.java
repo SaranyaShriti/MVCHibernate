@@ -62,12 +62,29 @@ public class RideController {
 			boolean check = rideService.checkUser(user);
 			if(check)
 			{
-			List<Route> routesList = rideService.listRoutes();
+			List<Route> routesList = rideService.listRoutes(1);
 			model.addAttribute("listRoutes", routesList);
 			return "route";
 			}
 			else
 				return "invalid";
+		}
+		catch(Exception e)
+		{
+			return "invalid";
+		}
+	}
+	
+	@RequestMapping(value="/routeListPagination")
+	public String routeList1(Model model,@RequestParam("pageNo") int pageNo)
+	{
+		try
+		{
+			
+			List<Route> routesList = rideService.listRoutes(pageNo);
+			model.addAttribute("listRoutes", routesList);
+			return "route";
+		
 		}
 		catch(Exception e)
 		{
